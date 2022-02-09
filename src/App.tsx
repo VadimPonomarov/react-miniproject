@@ -1,26 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Route, Routes} from 'react-router-dom';
+
+import MainLayout from './layouts/Main.Layout';
+import PopularPage from './pages/popular/PopularPage';
+import WatchedNowPage from './pages/watched_now/WatchedNowPage';
+import ComingSoonPage from './pages/coming_soon/ComingSoonPage';
+import TheBestPage from './pages/the_best/TheBestPage';
+import HomePage from './pages/home/HomePage';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    return (
+        <Routes>
+            <Route path={''} element={<MainLayout/>}>
+                <Route path={''} element={<HomePage/>}/>
+                <Route path={':search'} element={<PopularPage/>}/>
+                {/*<Route path={'popular'} element={<PopularPage/>}/>
+                <Route path={'watched_now'} element={<WatchedNowPage/>}/>
+                <Route path={'coming_soon'} element={<ComingSoonPage/>}/>
+                <Route path={'the_best'} element={<TheBestPage/>}/>*/}
+            </Route>
+        </Routes>
+    )
 }
 
 export default App;
