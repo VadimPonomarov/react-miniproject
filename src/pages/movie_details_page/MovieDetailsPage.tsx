@@ -7,10 +7,10 @@ import {IMovie} from '../../types';
 const MovieDetailsPage: FC = () => {
     const movie:any = useLocation().state
     console.log(movie)
-    const addr = `${baseUrlPictures}/w300/${movie.data.backdrop_path}`
+    const addr = `${baseUrlPictures}/w500/${movie.data.backdrop_path}`
 
     return (
-        <div className="card col-12 " style={{backgroundImage: `url(${addr})`}}>
+        <div className="card col-12 vh-100 img-fluid" style={{backgroundImage: `url(${addr})`, backgroundSize: 'cover'}}>
             <div className="row g-0">
                 <div className="col-md-4">
                     {/*<img src="..." className="img-fluid rounded-start" alt="...">*/}
