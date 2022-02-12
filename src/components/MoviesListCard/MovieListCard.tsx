@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 
 import {IResultMovies} from '../../types';
 import {baseUrlPictures} from '../../config';
@@ -9,11 +9,12 @@ type movieListCardType = {
 }
 
 const MovieListCard: FC<movieListCardType> = ({item}): any => {
-
+    const location = useLocation().pathname
     const url: string = `${baseUrlPictures}/w300${item.poster_path}`
+
     return (
         <div>
-            <Link state={{data: item}} to={`${item.id}`} className={'text-decoration-none'}>
+            <Link state={{data: item}} to={location==='/'?`home/${item.id}`:`${item.id}`} className={'text-decoration-none'}>
                 <img src={`${url}`} className="card-img-top rounded-top" alt={``}/>
                 <div
                     style={

@@ -1,15 +1,17 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
+import {useParams} from 'react-router-dom';
+
 import {useAppDispatch, useAppSelector} from '../../hooks/redux';
-import {getMovieThunk, setCurrentPage} from '../../store/slices';
-import {useLocation, useParams} from 'react-router-dom';
+import {getMovieThunk} from '../../store/slices';
 
 
 const Pagination: FC = (): any => {
     const currentPage = useAppSelector(state => state.movies.current_page)
     const dispatch = useAppDispatch()
     const params: any = useParams()
+    const [formPage, setFormPage] = useState(currentPage)
 
-    const handleClick = (goTo: { direction: string }): any => {
+    const handleClick = (goTo: { direction?: string | undefined, value?: number }): any => {
         switch (goTo.direction) {
             case 'next':
                 if (currentPage + 1 > 0) {
@@ -18,11 +20,20 @@ const Pagination: FC = (): any => {
                     dispatch(getMovieThunk({discover: params.search || 'discover', page: 1}))
                 }
                 break
-            default :
+            case 'prev':
                 if (currentPage - 1 > 0) {
                     dispatch(getMovieThunk({discover: params.search || 'discover', page: currentPage - 1}))
                 } else {
                     dispatch(getMovieThunk({discover: params.search || 'discover', page: 1}))
+                }
+                break
+            default :
+                if (currentPage - 1 > 0) {
+                    setFormPage(goTo.value || 1)
+                    dispatch(getMovieThunk({discover: params.search || 'discover', page: formPage }))
+                } else {
+                    setFormPage(goTo.value || 1)
+                    dispatch(getMovieThunk({discover: params.search || 'discover', page: formPage }))
                 }
 
         }
@@ -37,7 +48,6 @@ const Pagination: FC = (): any => {
                     </button>
                 </li>
                 <li className="page-item"><a className="page-link" href="1">{currentPage}</a></li>
-
                 <li className="page-item">
                     <button type="button" onClick={() => handleClick({direction: 'next'})} className="page-link"
                             aria-label="Next">
