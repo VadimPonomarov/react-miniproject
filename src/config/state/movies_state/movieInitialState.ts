@@ -8,7 +8,7 @@ export const movieInitialState: IMovieState = {
     now_playing: [],
     popular: [],
     current_item: null,
-    current_page: null,
+    current_page: 1,
     loading: false,
     error: null,
     status: null,
