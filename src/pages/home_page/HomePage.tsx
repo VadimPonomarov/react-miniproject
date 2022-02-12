@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
-import MoviePage from '../movie_page/MoviePage';
 import GenreBadge from '../../components/GenreBadge/GenreBadge';
+import DiscoverPage from '../discover_page/DiscoverPage';
 
 const HomePage: FC = (): any => {
 
@@ -10,7 +10,7 @@ const HomePage: FC = (): any => {
                 <GenreBadge/>
             </div>
             <div className={'d-flex col-8'}>
-                <MoviePage/>
+                <DiscoverPage/>
             </div>
         </div>
     )
