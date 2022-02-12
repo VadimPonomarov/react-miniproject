@@ -1,6 +1,7 @@
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {genreService} from '../../services';
-import {initialGenresState as initialState, IGenresState, IGenres} from '../../types'
+import {IGenresState, IGenres} from '../../types'
+import {initialGenresState as initialState} from '../../config/state/genres_state/genreInitialState';
 
 
 export const getGenresThunk = createAsyncThunk(

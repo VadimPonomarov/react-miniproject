@@ -1,6 +1,7 @@
 import React, {FC, useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '../../hooks/redux';
 import {useLocation, useParams} from 'react-router-dom';
+
 import {IMovie} from '../../types';
 import {movieParamsSwitch} from '../../services/movie.params.switch';
 import {getMovieThunk} from '../../store/slices';

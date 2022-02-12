@@ -13,9 +13,11 @@ const GenreBadge: FC = (): any => {
     useEffect(() => {
         dispatch(getGenresThunk())
     }, [])
+
     const handleClick = (e: any) => {
         const elem: any = document.getElementById(e.target.id)
         elem.classList.toggle('btn-primary')
+
         if (elem.getAttribute('class').includes('btn-primary')) {
             dispatch(setChoosenState({data: elem.getAttribute('value')}))
         } else {
@@ -26,8 +28,15 @@ const GenreBadge: FC = (): any => {
     return (
         genres.map(item => {
             return (
-                <button key={uuid()} id={uuid()} value={item.id} onClick={(e) => handleClick(e)}
-                        className={'btn rounded-3 border border-primary m-1'}>{item.name}</button>
+                <button
+                    key={uuid()}
+                    id={uuid()}
+                    value={item.id}
+                    onClick={(e) => handleClick(e)}
+                    className={'btn rounded-3 border border-primary m-1'}
+                >
+                    {item.name}
+                </button>
             )
 
         })

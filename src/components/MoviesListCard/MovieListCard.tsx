@@ -14,8 +14,15 @@ const MovieListCard: FC<movieListCardType> = ({item}): any => {
 
     return (
         <div>
-            <Link state={{data: item}} to={location==='/'?`home/${item.id}`:`${item.id}`} className={'text-decoration-none'}>
-                <img src={`${url}`} className="card-img-top rounded-top" alt={``}/>
+            <Link
+                state={{data: item}}
+                to={location === '/' ? `home/${item.id}` : `${item.id}`}
+                className={'text-decoration-none'}
+            >
+                <img src={`${url}`}
+                     className="card-img-top rounded-top"
+                     alt={``}
+                />
                 <div
                     style={
                         {
@@ -40,12 +47,10 @@ const MovieListCard: FC<movieListCardType> = ({item}): any => {
                 <div
                     className={'text-start ms-2'}
                 >
-                    {new Date(item.release_date).toLocaleDateString()
-                    }
+                    {new Date(item.release_date).toLocaleDateString()}
                 </div>
                 <b>
-                    <p
-                        className={'align-middle text-start p-2'}>
+                    <p className={'align-middle text-start p-2'}>
                         {item.title}
                     </p>
                 </b>

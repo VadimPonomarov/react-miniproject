@@ -9,8 +9,3 @@ export interface IGenresState {
     choosen: number[]
 }
 
-export const initialGenresState: IGenresState = {
-    genres: [],
-    errors: [],
-    choosen: []
-}
