@@ -2,7 +2,7 @@ import React, {FC, useEffect} from 'react';
 import {v4 as uuid} from 'uuid'
 
 import {useAppDispatch, useAppSelector} from '../../hooks/redux';
-import {getGenresThunk, setChoosenState, removeChoosenState} from '../../store/slices/genres.slice';
+import {getGenresThunk, setChoosenState, removeChoosenState} from '../../store/slices/genres_slice/genres.slice';
 
 const GenreBadge: FC = (): any => {
 

@@ -17,17 +17,17 @@ const Pagination: FC = (): any => {
 
             case 'next':
                 if (currentPage + 1 > 0) {
-                    dispatch(getMovieThunk({discover: params.search, page: currentPage + 1}))
+                    dispatch(getMovieThunk({discover: params.search || 'discover', page: currentPage + 1}))
                 } else {
-                    dispatch(getMovieThunk({discover: params.search, page: 1}))
+                    dispatch(getMovieThunk({discover: params.search || 'discover', page: 1}))
                 }
                 break
 
             case 'prev':
                 if (currentPage - 1 > 0) {
-                    dispatch(getMovieThunk({discover: params.search, page: currentPage - 1}))
+                    dispatch(getMovieThunk({discover: params.search || 'discover', page: currentPage - 1}))
                 } else {
-                    dispatch(getMovieThunk({discover: params.search, page: 1}))
+                    dispatch(getMovieThunk({discover: params.search || 'discover', page: 1}))
                 }
                 break
 
@@ -59,7 +59,7 @@ const Pagination: FC = (): any => {
                         </span>
                     </button>
                 </li>
-                <li className="page-item">
+                <li className="page-item disabled">
                     <a className="page-link" href="1">
                         {currentPage}
                     </a>

@@ -45,7 +45,7 @@ const MovieDetailsPage: FC = () => {
                                 'd-flex ' +
                                 'rounded-circle ' +
                                 'align-items-center ' +
-                                'justify-content-center'
+                                'justify-content-center border border-warning border-2'
                             }
                         >
                             <div>
@@ -63,7 +63,7 @@ const MovieDetailsPage: FC = () => {
                     <h5>
                         {item.original_title}
                     </h5>
-                    <p className="card-text">
+                    <p className="card-text mt-3 mb-3">
                         Обзор {item.overview}
                     </p>
                     <p className="card-text">
