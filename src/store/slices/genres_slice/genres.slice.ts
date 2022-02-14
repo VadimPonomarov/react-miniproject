@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {genreService} from '../../../services';
-import {IGenresState, IGenres} from '../../../types'
+import {IGenresState} from '../../../types'
 import {initialGenresState as initialState} from '../../../config/state/genres_state/genreInitialState';
 
 
@@ -30,6 +30,11 @@ const genreSlice = createSlice({
         },
         removeChoosenState: (state: IGenresState, action: PayloadAction<{ data: number }>): any => {
             state.choosen = state.choosen.filter(item => item !== action.payload.data)
+        }
+    },
+    extraReducers: {
+        [`${getGenresThunk.rejected}`]: (state: IGenresState, action: PayloadAction<any>) => {
+            console.log(action.payload)
         }
     }
 })
